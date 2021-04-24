@@ -34,7 +34,7 @@ def get_sale(transaction_id=0):
 def helloTest():
     ddd = get_hit_count()
     # обратиться ко внешнему сервису, чтобы он отправил смс
-    # у смс сервиса есть  API
+    # у смс сервиса есть API
     # нам нужно подменить оригинальный API/ROUTE на наш МОК
     # ENV_SMS_API_ROUTE=http://localhost/8081/sms-send/
     # ENV_SMS_API_ROUTE=http://original
