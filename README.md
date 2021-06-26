@@ -61,6 +61,8 @@ DELETE FROM orders WHERE status = 'canceled';
 Методы PUT и DELETE по определению идемпотентны.
 Методы GET, HEAD, OPTIONS и TRACE определены как безопасные, что также делает их идемпотентными.
 
+! [picture](https://habrastorage.org/getpro/habr/post_images/f3b/595/9d3/f3b5959d3b5a30dc441a062628cda9c1.jpg "Opk")
+
 ---
 
 ## Источники
