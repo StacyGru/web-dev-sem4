@@ -34,6 +34,26 @@ Code-On-Demand (опционально). В REST позволяется загр
 
 ## Что такое CRUD и примеры запросов из созданного API
 
+**CRUD** —  акроним, обозначающий четыре базовые функции, используемые при работе с базами данных (Create, Read, Update, Delete — Создать, Прочитать, Обновить, Удалить). В SQL этим функциям, операциям соответствуют операторы Insert (создание записей), Select (чтение записей), Update (редактирование записей), Delete (удаление записей).
+
+Примеры запросов из созданного API (3 домашняя работа):
+
+```
+INSERT INTO clients ('client_id', 'full_name', 'phone', 'login', 'password') VALUES (1, 'Грушевская Анастасия Сергеевна', '+79053496689', 'StacyGru', '12345678'); 
+```
+
+```
+SELECT * FROM drivers WHERE gender = 'female';
+```
+
+```
+UPDATE discont_cards SET points = '100' where client_id = '5';
+```
+
+```
+DELETE FROM orders WHERE status = 'canceled';
+```
+
 ## Какие запросы в моём API являются идемпотентными и почему
 
 ---
