@@ -62,3 +62,4 @@ DELETE FROM orders WHERE status = 'canceled';
 - https://habr.com/ru/post/38730/
 - https://habr.com/ru/post/483202/
 - https://habr.com/ru/post/319984/
+- https://ru.wikipedia.org/wiki/CRUD
