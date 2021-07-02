@@ -1,24 +1,21 @@
 <?php
 
 
-namespace App\Controller;
+namespace App\Core\Controller;
 
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/hello")
- */
-class TestController
+class DefaultController
 {
     /**
-     * @Route(path="/", methods={"GET"})
+     * @Route(path="/")
      */
-    public function index()
+    public function indexAction()
     {
         return new Response(
-            "<h1> ПРИВЕТ !!! </h1>",
+            "<h1>Главная страница</h1>",
             Response::HTTP_OK,
             [
                 'Content-type' => 'text/html'

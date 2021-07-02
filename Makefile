@@ -1,9 +1,9 @@
 LOCALHOST_PROJECT_DIR := $(shell pwd)
 PROJECT_NAME := project
+COMPOSE_FILE := ./docker-compose.yml
 
 .DEFAULT_GOAL := help
-# This will output the help for each task
-# thanks to https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
+
 help:## This is help.
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
@@ -16,14 +16,34 @@ echo-project-dir:## Show current working directory.
 
 .PHONY: echo-project-dir
 
+print:## print
+	@printenv
 
-## Docker compose shortcuts
-up-dev: COMPOSE_FILE=./docker-compose.yml
+.PHONY: print
+
 up-dev: ## Up current containers for dev
 	docker-compose -f $(COMPOSE_FILE) up -d
 
-.PHONY: up-dev 
+print-compose-file:## print compose file
+	@echo $(COMPOSE_FILE)
 
+.PHONY: up-dev print-compose-file
+
+nginx-exec:## enter nginx exec
+	docker exec -it $(PROJECT_NAME)-nginx sh
+
+.PHONY: nginx-exec
+
+
+php-exec: ## Run any php command in our container
+	docker exec -it $(PROJECT_NAME)-php sh
+
+.PHONY: php-exec
+
+stop-dev:## stop docker containers
+	docker-compose stop
+
+.PHONY: stop-dev
 
 php-exec-cmd: CMD?=-r 'phpinfo();'
 php-exec-cmd: ## Run any php command in our container
@@ -31,20 +51,12 @@ php-exec-cmd: ## Run any php command in our container
 
 .PHONY: php-exec
 
+ps:
+	docker-compose ps
 
-up:
-	docker-compose up
+.PHONY: ps
 
-.PHONY: up
-
-
-stop:
-	docker-compose stop
-
-.PHONY: stop
-
-
-i:
+i:## print docker ps
 	composer install
 
 .PHONY: i

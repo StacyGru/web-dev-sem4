@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Command;
+namespace App\Api\command;
 
 
 use Symfony\Component\Console\Command\Command;
@@ -35,6 +35,7 @@ class CreateUser extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+
         $output->writeln($this->someMethod());
 
         return Command::SUCCESS;
@@ -42,6 +43,6 @@ class CreateUser extends Command
 
     private function someMethod(): string
     {
-        return 'Хочу закрыть сессию без пересдач';
+        return 'Здравствуйте!';
     }
 }
